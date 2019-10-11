@@ -1,7 +1,7 @@
 const {StandingsLookup, getCompIDs} = require('../standing_lookup')
 
 test('return json from lookup', async () => {
-  expect(await StandingsLookup()).toBeInstanceOf(Object)
+  expect(await StandingsLookup()).toEqual(['4oogyu6o156iphvdvphwpck10', '2kwbbcootiqqgmrzs6o5inle5'])
 })
 
 test('extracting ids from competitions object', () =>{

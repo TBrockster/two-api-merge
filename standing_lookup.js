@@ -2,12 +2,12 @@ const axios = require("axios");
 
 StandingsLookup = () => {
   const url = 'https://makers.sd.dazn-dev.com/api/competitions';
-  const competitions = axios.get(url)
+  const comp_ids = axios.get(url)
   .then(response => response.data)
   .then((data) => {
-    return data
+    return getCompIDs(data.competition)
   })
-  return competitions
+  return comp_ids
 }
 
 getCompIDs = (competitions) => {
