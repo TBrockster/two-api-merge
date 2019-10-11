@@ -2,20 +2,21 @@ const axios = require("axios");
 
 StandingsLookup = () => {
   const url = 'https://makers.sd.dazn-dev.com/api/competitions';
-  return axios.get(url)
+  const competitions = axios.get(url)
   .then(response => response.data)
   .then((data) => {
     return data
   })
+  return competitions
 }
 
-// function StandingsLookup(competition){
-//   axios({
-//     url: 'https://makers.sd.dazn-dev.com/api/competitions',
-//     method: 'get'
-//   }).then
+getCompIDs = (competitions) => {
+  return competitions.map(competition => {
+    return competition.id
+  })
+}
 
-//   console.log(response)
-// }
 
-module.exports = StandingsLookup;
+
+module.exports.StandingsLookup = StandingsLookup;
+module.exports.getCompIDs = getCompIDs;
